@@ -1,6 +1,295 @@
+{% doc %}
+  @prompt
+    checkbox with text
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-checkbox-wrapper-{{ ai_gen_id }} {
+    display: flex;
+    align-items: flex-start;
+    gap: {{ block.settings.spacing }}px;
+    margin: {{ block.settings.margin }}px 0;
+    padding: {{ block.settings.padding }}px;
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+  }
+
+  .ai-checkbox-input-{{ ai_gen_id }} {
+    appearance: none;
+    -webkit-appearance: none;
+    width: {{ block.settings.checkbox_size }}px;
+    height: {{ block.settings.checkbox_size }}px;
+    border: {{ block.settings.border_width }}px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.checkbox_border_radius }}px;
+    background-color: {{ block.settings.checkbox_background }};
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .ai-checkbox-input-{{ ai_gen_id }}:checked {
+    background-color: {{ block.settings.checkbox_checked_background }};
+    border-color: {{ block.settings.checkbox_checked_border }};
+  }
+
+  .ai-checkbox-input-{{ ai_gen_id }}:checked::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 25%;
+    height: 50%;
+    border-bottom: {{ block.settings.checkmark_width }}px solid {{ block.settings.checkmark_color }};
+    border-right: {{ block.settings.checkmark_width }}px solid {{ block.settings.checkmark_color }};
+  }
+
+  .ai-checkbox-input-{{ ai_gen_id }}:focus {
+    outline: 2px solid {{ block.settings.focus_color }};
+    outline-offset: 2px;
+  }
+
+  .ai-checkbox-label-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+
+  .ai-checkbox-label-{{ ai_gen_id }} a {
+    color: {{ block.settings.link_color }};
+    text-decoration: underline;
+  }
+
+  .ai-checkbox-label-{{ ai_gen_id }} a:hover {
+    color: {{ block.settings.link_hover_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-checkbox-wrapper-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding | divided_by: 1.5 }}px;
+      margin: {{ block.settings.margin | divided_by: 1.5 }}px 0;
+    }
+    
+    .ai-checkbox-label-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | minus: 1 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-checkbox-wrapper-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <input 
+    type="checkbox" 
+    id="ai-checkbox-{{ ai_gen_id }}" 
+    name="ai-checkbox-{{ ai_gen_id }}" 
+    class="ai-checkbox-input-{{ ai_gen_id }}"
+    {% if block.settings.required %}required{% endif %}
+    {% if block.settings.checked_by_default %}checked{% endif %}
+  >
+  <label for="ai-checkbox-{{ ai_gen_id }}" class="ai-checkbox-label-{{ ai_gen_id }}">
+    {{ block.settings.text }}
+  </label>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Checkbox with Text",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>I agree to the terms and conditions</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "checked_by_default",
+      "label": "Checked by default",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "required",
+      "label": "Required",
+      "default": false,
+      "info": "Makes the checkbox required when used within a form"
+    },
+    {
+      "type": "header",
+      "content": "Checkbox Style"
+    },
+    {
+      "type": "range",
+      "id": "checkbox_size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Checkbox size",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "checkbox_border_radius",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "unit": "px",
+      "label": "Checkbox corner radius",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "unit": "px",
+      "label": "Border width",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "checkmark_width",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "unit": "px",
+      "label": "Checkmark thickness",
+      "default": 2
+    },
+    {
+      "type": "color",
+      "id": "checkbox_background",
+      "label": "Checkbox background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "checkbox_checked_background",
+      "label": "Checked background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "checkbox_checked_border",
+      "label": "Checked border",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "checkmark_color",
+      "label": "Checkmark color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "focus_color",
+      "label": "Focus outline color",
+      "default": "#000f9f"
+    },
+    {
+      "type": "header",
+      "content": "Text Style"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#000f9f"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Space between checkbox and text",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "margin",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Vertical margin",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Container corner radius",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f4f4f4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Checkbox with Text"
+    }
+  ]
+}
 {% endschema %}
