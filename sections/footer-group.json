@@ -57,8 +57,34 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>New arrivals</h2>",
-                "width": "fit-content",
+                "text": "<h2>Stay tuned, stay stylish</h2>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_pxbCgw": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h6>Suscríbete a nuestra newsletter y disfruta de ventajas como ofertas especiales, descuentos y las últimas novedades.<br/></h6>",
+                "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "rte",
@@ -83,7 +109,7 @@
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<h4>Stay tuned, stay stylish</h4>",
+                "text": "",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -128,12 +154,40 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "text_zBCjgD": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<p>UNISA se hace responsable del tratamiento de tus datos, con la finalidad de atender tu solicitud de registro como cliente y gestionar los pedidos que realices y remitirte comunicaciones comerciales únicamente en el caso de que marques la casilla a tal fin. Tienes los derechos de acceso, rectificación, supresión, limitación, oposición al tratamiento y portabilidad de tus datos personales. Puedes ejercitar tus derechos en<a href=\"mailto:protecciondatos@unisa-europa.com\">protecciondatos@unisa-europa.com</a>. +info en nuestra<a href=\"https://www.unisa-europa.com/es-ES/privacidad\" target=\"_blank\">Política de privacidad</a></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "text_dcjtVe",
+            "text_pxbCgw",
             "text_eadEPN",
-            "email_signup_Hxz43h"
+            "email_signup_Hxz43h",
+            "text_zBCjgD"
           ]
         },
         "group_NEzhmq": {
