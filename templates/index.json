@@ -826,9 +826,33 @@
             "product_card_gallery_7KCQ7H": {
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
+              "disabled": true,
               "settings": {
                 "product": "zapatos-nauticos-de-piel-festus-tpa",
                 "image_ratio": "portrait",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "image_QKUdir": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/mocasines-festus-tpa-cuoio-18bfa.jpg",
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -950,6 +974,7 @@
           },
           "block_order": [
             "product_card_gallery_7KCQ7H",
+            "image_QKUdir",
             "group_YcjzqM"
           ]
         }
